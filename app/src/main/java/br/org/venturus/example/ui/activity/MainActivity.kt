@@ -3,7 +3,6 @@ package br.org.venturus.example.ui.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import br.org.venturus.example.R
@@ -28,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         //If on the AppStateViewModel one decides to show the visual component appbar
         //the title will already be define according to label defined on nav_graph.xml
         title = destination.label
-        appStateViewModel.liveComponents.observe(this, Observer { visualComponents ->
+        appStateViewModel.liveComponents.observe(this, { visualComponents ->
             visualComponents?.let {
                 if (it.appBar) {
                     supportActionBar?.show()

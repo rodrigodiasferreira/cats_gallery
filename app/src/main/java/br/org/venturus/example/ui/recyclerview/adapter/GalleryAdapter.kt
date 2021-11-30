@@ -23,7 +23,7 @@ class GalleryAdapter(
     var recyclerView: RecyclerView? = null
 
     init {
-        setHasStableIds(true);
+        setHasStableIds(true)
     }
 
     override fun getItemId(position: Int): Long {

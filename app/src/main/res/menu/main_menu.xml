@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/clean_cache_db"
-        android:title="@string/clean_cache_db"
+    <item
+        android:id="@+id/clean_cache_db"
         android:icon="@drawable/delete_sweep"
-        app:showAsAction="ifRoom"/>
+        android:title="@string/clean_cache_db"
+        app:showAsAction="ifRoom" />
 </menu>

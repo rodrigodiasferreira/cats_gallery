@@ -3,7 +3,6 @@ package br.org.venturus.example.di
 
 import androidx.room.Room
 import br.org.venturus.example.database.AppDatabase
-import br.org.venturus.example.database.dao.ImageDAO
 import br.org.venturus.example.repository.ImageRepository
 import br.org.venturus.example.retrofit.webclient.ImgurWebClient
 import br.org.venturus.example.ui.recyclerview.adapter.GalleryAdapter
@@ -15,7 +14,7 @@ import org.koin.dsl.module
 private const val DATABASE_NAME = "gallery.db"
 
 val databaseModule = module {
-    single<AppDatabase> {
+    single {
         Room.databaseBuilder(
             get(),
             AppDatabase::class.java,
@@ -25,24 +24,24 @@ val databaseModule = module {
 }
 
 val daoModule = module {
-    single<ImageDAO> { get<AppDatabase>().imageDao() }
+    single { get<AppDatabase>().imageDao() }
 }
 
 val adapterModule = module {
-    factory<GalleryAdapter> { GalleryAdapter(get()) }
+    factory { GalleryAdapter(get()) }
 }
 
 private val repositoryModule = module {
-    single<ImageRepository> { ImageRepository(get(), get(), get()) }
+    single { ImageRepository(get(), get(), get()) }
 }
 
 private val webServiceModule = module {
-    single<ImgurWebClient> { ImgurWebClient(get()) }
+    single { ImgurWebClient(get()) }
 }
 
 private val viewModelModule = module {
-    viewModel<AppStateViewModel> { AppStateViewModel() }
-    viewModel<GalleryViewModel> { GalleryViewModel(get()) }
+    viewModel { AppStateViewModel() }
+    viewModel { GalleryViewModel(get()) }
 }
 
 val modules = listOf(

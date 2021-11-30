@@ -12,6 +12,7 @@ import br.org.venturus.example.utils.NetworkHelper.Companion.isNetworkAvailable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.net.HttpURLConnection.HTTP_OK
 
 class ImageRepository(
     private val context: Context,
@@ -43,16 +44,16 @@ class ImageRepository(
                          * As this is only a test app, so I am simply checking in order to add
                          * into DB the new entries from the Web
                          * There are much better strategies depending on the WebService that you
-                         * are consuming, link only retrieve from the Web the changed entries
+                         * are consuming, like only retrieve from the Web, the changed entries
                          * and update the diff into the database
                          * Or even if there is some NoSQL DB (e.g. Cloud Firestore) which notifies
-                         * the subscribed observer to that level of hierarchy of the data, in this
-                         * case it would not even needed a local database, as it already support
-                         * offline operations, and later when the conection is re-established
-                         * it syncs with the cloud.
+                         * the subscribed observers that at some level of the data hierarchy that
+                         * has changed, in this case it would even not be needed a local database,
+                         * as it already supports offline operations, and later when the connection
+                         * is reestablished it syncs the changes with the cloud.
                          * */
 
-                        if (body.success && body.status == 200) {
+                        if (body.success && body.status == HTTP_OK) {
 
                             CoroutineScope(Dispatchers.IO).launch {
                                 val dbImages = dao.retrieveAllSychronously()

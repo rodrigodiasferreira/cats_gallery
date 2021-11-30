@@ -2,6 +2,7 @@ package br.org.venturus.example.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.Network
 import android.net.NetworkCapabilities
 import android.os.Build
 
@@ -11,7 +12,7 @@ class NetworkHelper {
         fun isNetworkAvailable(context: Context): Boolean {
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                val network = connectivityManager.activeNetwork ?: return false
+                val network: Network = connectivityManager.activeNetwork ?: return false
                 val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
                 return when {
                     activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true

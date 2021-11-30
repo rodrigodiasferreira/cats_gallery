@@ -3,7 +3,6 @@ package br.org.venturus.example.ui.fragment
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.org.venturus.example.R
 import br.org.venturus.example.databinding.GalleryBinding
@@ -78,7 +77,7 @@ class GalleryFragment : BaseFragment() {
     }
 
     private fun retrieveAllFromDB() {
-        viewModel.retrieveAllFromDB().observe(viewLifecycleOwner, Observer { data ->
+        viewModel.retrieveAllFromDB().observe(viewLifecycleOwner, { data ->
             data?.let {
                 adapter.update(it)
             }
