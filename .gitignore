@@ -8,7 +8,7 @@
 .cxx
 local.properties
 .idea
-gradle
+gradle/wrapper/gradle-wrapper.jar
 gradlew
 gradlew.bat
 app/build
