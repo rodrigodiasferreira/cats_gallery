@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Cats Gallery</string>
+    <string name="failure_on_request">Failure on the request</string>
+    <string name="not_able_to_load_images">Not able to load the images</string>
+    <string name="network_unavailable">Network unavailable</string>
+
+    <string name="sp" translatable="false">sp</string>
+    <string name="synced_once" translatable="false">synced_once</string>
+    <string name="clean_cache_db">Clean DB</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="clean_db_confirmation">Are you sure you want to clean all images from database?</string>
+    <string name="cache_db_cleaned_successfully">Database was cleaned successfully!\nResyncing from Web</string>
+    <string name="error_retrieveing_data">There was some unexpected error\nretrieving data from imgur</string>
+</resources>
